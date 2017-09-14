@@ -1,12 +1,12 @@
-package in.spring4buddies.application.sfbootoauth2as;
+package in.spring4buddies.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SfBootOauth2AsApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SfBootOauth2AsApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }
