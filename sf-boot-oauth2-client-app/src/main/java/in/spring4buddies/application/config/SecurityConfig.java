@@ -17,16 +17,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 				.antMatchers("/", "/normal").permitAll()
 				.anyRequest().authenticated()
-				.and()
-			.formLogin().and()
-			.httpBasic();
+//				.antMatchers("/secured").authenticated()
+			.and()
+			 	.formLogin()
+			.and()
+				.httpBasic();
 		// @formatter:on
 	}
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication()
-			.withUser("test").password("pass").roles("USER")
+			.withUser("testUser").password("pass").roles("USER")
 		.and()
 		   .withUser("testDBA").password("pass").roles("USER", "ADMIN");
 	}
