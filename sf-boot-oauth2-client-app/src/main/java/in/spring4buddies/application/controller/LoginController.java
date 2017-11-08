@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping
 public class LoginController {
 
-	@GetMapping("/login")
+	@GetMapping("/normal")
 	public Message login() {
 		return new Message("Normal resource ");
 	}

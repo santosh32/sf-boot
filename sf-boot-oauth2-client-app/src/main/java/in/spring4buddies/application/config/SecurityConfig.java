@@ -1,22 +1,34 @@
-/*package in.spring4buddies.application.config;
+package in.spring4buddies.application.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-public class SecurityConfig extends AuthorizationServerConfigurerAdapter {
-
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
 	@Override
-	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+	protected void configure(HttpSecurity http) throws Exception {
 		// @formatter:off
-		clients.inMemory()
-			.withClient("service-account-1")
-			.secret("service-account-1-secret")
-			.authorizedGrantTypes("client_credentials")
-			.scopes("resource-server-read", "resource-server-write");
+		http
+			.authorizeRequests()
+				.antMatchers("/", "/normal").permitAll()
+				.anyRequest().authenticated()
+				.and()
+			.formLogin().and()
+			.httpBasic();
 		// @formatter:on
 	}
-}*/
+	
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication()
+			.withUser("test").password("pass").roles("USER")
+		.and()
+		   .withUser("testDBA").password("pass").roles("USER", "ADMIN");
+	}
+
+}
