@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>sf-boot-oauth2-authorization-server</name>
-	<description>Demo project for Spring Boot</description>
+	<description>sf-boot-oauth2-authorization-server</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
