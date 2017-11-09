@@ -16,12 +16,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				.antMatchers("/", "/normal").permitAll()
-				.anyRequest().authenticated()
+				.anyRequest().authenticated();
 //				.antMatchers("/secured").authenticated()
-			.and()
-			 	.formLogin()
-			.and()
-				.httpBasic();
+//			.and()
+//			 	.formLogin()
+//			.and()
+//				.httpBasic();
 		// @formatter:on
 	}
 	

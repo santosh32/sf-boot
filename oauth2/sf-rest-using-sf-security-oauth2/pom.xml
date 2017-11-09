@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>in.spring4buddies.application</groupId>
-	<artifactId>sf-boot-oauth2-client-app</artifactId>
+	<artifactId>sf-rest-using-sf-security-oauth2</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>sf-boot-oauth2-client-app</name>
-	<description>sf-boot-oauth2-client-app</description>
+	<name>sf-rest-using-sf-security-oauth2</name>
+	<description>sf-rest-using-sf-security-oauth2</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
