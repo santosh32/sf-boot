@@ -21,7 +21,6 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		http
-			.anonymous().disable()
 //			.requestMatchers().antMatchers("/fruits/**")
 //		.and()
 			.authorizeRequests().antMatchers("/fruits/**").access("hasRole('ADMIN')")
