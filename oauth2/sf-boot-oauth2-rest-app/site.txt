@@ -1,0 +1,9 @@
+http://www.devglan.com/spring-security/spring-boot-security-rest-basic-authentication
+https://medium.com/@nydiarra/secure-a-spring-boot-rest-api-with-json-web-token-reference-to-angular-integration-e57a25806c50
+http://www.swisspush.org/security/2016/10/17/oauth2-in-depth-introduction-for-enterprises
+https://jugbd.org/2017/09/19/implementing-oauth2-spring-boot-spring-security/
+http://javabycode.com/spring-framework-tutorial/spring-security/secure-spring-rest-api-using-spring-security-oauth2-example.html
+http://javabycode.com/spring-framework-tutorial/spring-security/spring-security-basic-authentication-example.html
+http://www.tinmegali.com/en/oauth2-using-spring/
+http://www.tinmegali.com/en/oauth2-jwt-using-spring/
+https://memorynotfound.com/spring-boot-spring-security-hibernate-configuration-example/
