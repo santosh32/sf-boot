@@ -1,7 +1,3 @@
 server:
-  contextPath: /client
+  contextPath: /rest-api
   port: 8080
-security:
-  oauth2:
-    resource:
-      userInfoUri: http://localhost:8070/user
