@@ -44,24 +44,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
-//		auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
-		
-		auth.inMemoryAuthentication()
-			.withUser("testUser").password("pass").roles("USER")
-		.and()
-		   .withUser("testDBA").password("pass").roles("USER", "ADMIN");
+		auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.csrf().disable()
-			.anonymous().disable()
 		.authorizeRequests()
-			.anyRequest().authenticated()
+			.antMatchers("/").permitAll()
 		.and()
-			.httpBasic();
-//			.authenticationEntryPoint(authEntryPoint);
+			.authorizeRequests()
+				.antMatchers("/console/**").permitAll()
+				.antMatchers("/users/**").permitAll();
+		
+		http.headers().frameOptions().disable();
 	}
 
 	@Bean
@@ -92,17 +89,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 
-//	@Bean
-//	public FilterRegistrationBean corsFilter() {
-//		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//		CorsConfiguration config = new CorsConfiguration();
-//		config.setAllowCredentials(true);
-//		config.addAllowedOrigin("*");
-//		config.addAllowedHeader("*");
-//		config.addAllowedMethod("*");
-//		source.registerCorsConfiguration("/**", config);
-//		FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
-//		bean.setOrder(0);
-//		return bean;
-//	}
+	@Bean
+	public FilterRegistrationBean corsFilter() {
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		CorsConfiguration config = new CorsConfiguration();
+		config.setAllowCredentials(true);
+		config.addAllowedOrigin("*");
+		config.addAllowedHeader("*");
+		config.addAllowedMethod("*");
+		source.registerCorsConfiguration("/**", config);
+		FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+		bean.setOrder(0);
+		return bean;
+	}
 }

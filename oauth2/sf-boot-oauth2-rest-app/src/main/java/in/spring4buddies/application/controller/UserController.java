@@ -1,27 +1,25 @@
 package in.spring4buddies.application.controller;
 
-import in.spring4buddies.application.model.User;
+import in.spring4buddies.application.model.UserDetails;
+import in.spring4buddies.application.service.UserService;
 
-import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping
 public class UserController {
 
-//	@Autowired
-//	private UserService userService;
+	@Autowired
+	private UserService userService;
 
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
-	public List<User> listUser() {
-		List<User> users = Arrays.asList(new User(1l,"X",1000,25));
-		return users;
-		
-//		return userService.findAll();
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	public List<UserDetails> listUser() {
+		return userService.getUserDetails();
 	}
 
 //	@RequestMapping(value = "/user", method = RequestMethod.POST)
