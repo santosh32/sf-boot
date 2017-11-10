@@ -21,3 +21,6 @@ spring:
       settings:
         trace: false
         web-allow-others: false
+        
+
+#https://memorynotfound.com/spring-boot-spring-security-hibernate-configuration-example/

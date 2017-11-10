@@ -1,7 +1,7 @@
 package in.spring4buddies.application.controller;
 
 import in.spring4buddies.application.model.UserDetails;
-import in.spring4buddies.application.service.UserService;
+import in.spring4buddies.application.service.UserServiceImpl;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userService;
 
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public List<UserDetails> listUser() {
