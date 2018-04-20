@@ -21,20 +21,21 @@ public class Application {
     @Autowired
     private UserRepository userRepository;
 
-   // @PostConstruct
+    @PostConstruct
     public void init(){
-        User user = new User(
-                "Memory",
-                "Not Found",
-                "info@memorynotfound.com",
-                passwordEncoder.encode("password"),
-                Arrays.asList(
-                        new Role("ROLE_USER"),
-                        new Role("ROLE_ADMIN")));
-
-        if (userRepository.findByEmail(user.getEmail()) == null){
-            userRepository.save(user);
-        }
+//        User user = new User(
+//                "Memory",
+//                "Not Found",
+//                "info@memorynotfound.com",
+//                passwordEncoder.encode("password"),
+//                Arrays.asList(
+//                        new Role("ROLE_USER"),
+//                        new Role("ROLE_ADMIN")));
+//
+//        if (userRepository.findByEmail(user.getEmail()) == null){
+//            userRepository.save(user);
+//        }
+        System.out.println(userRepository.findAll());
     }
 
     public static void main(String[] args) {
