@@ -1,4 +1,4 @@
-package com.memorynotfound.cloud;
+package in.spring4buddies.application;
 
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;

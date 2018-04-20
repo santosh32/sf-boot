@@ -1,4 +1,4 @@
-package com.memorynotfound.cloud;
+package in.spring4buddies.application;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,5 +18,4 @@ public class BookController {
                 new Book(3, "Spring Cloud Eureka Client", new BigDecimal(0))
         );
     }
-
 }

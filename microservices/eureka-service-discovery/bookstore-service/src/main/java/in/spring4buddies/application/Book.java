@@ -1,4 +1,4 @@
-package com.memorynotfound.cloud;
+package in.spring4buddies.application;
 
 import java.math.BigDecimal;
 
